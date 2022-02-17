@@ -24,8 +24,31 @@ librarian::shelf(
   gganimate,
   gapminder,
   stargazer,
-  snakecase
+  snakecase,
 )
 
 # tell here where we are so we can use it elsewhere
 here::i_am("R/include.R")
+
+#installing latex packages
+install.packages('tinytex')
+tinytex::install_tinytex()
+
+#installing missing latex packages
+library(tinytex)
+tlmgr_search('/colortbl.sty')
+tlmgr_install('colortbl')
+
+tlmgr_search('/a4wide.sty')
+tlmgr_install('a4wide')
+
+tlmgr_search('/a4.sty')
+tlmgr_install('ntgclass')
+
+tlmgr_search('/setspace.sty')
+tlmgr_install('setspace')
+
+tlmgr_search('/parskip.sty')
+tlmgr_install('parskip')
+
+tlmgr_update()
