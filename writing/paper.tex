@@ -40,11 +40,11 @@
 
 \section{Overview}
 
-This paper does a prima facie analysis of incarceration duration in United States in the year 2002 faceted at race and gender level. The way we calculate duration is by looking at \href{https://www.nlsinfo.org/investigator/pages/search}{NLS investigator}. We look at NLSY97 from 1997 to 2019 and download the incareration history captured for the year 2002. This dataset contains month-wise data and observations are recorded at individual level. Upon some data manipulation, we only consider the months when the individual was incarcerated in that month partially of entirely. We also have indicators on race (black, hispanic, mixed race and non-black. 
+This paper does a prima facie analysis of incarceration status in United States in the year 2002 faceted at race and gender level. The way we calculate duration is by looking at \href{https://www.nlsinfo.org/investigator/pages/search}{NLS investigator}. We look at NLSY97 from 1997 to 2019 and download the incareration history captured for the year 2002. This dataset contains month-wise data and observations are recorded at individual level. Upon some data manipulation, we only consider the months when the individual was incarcerated in that month partially of entirely. We also have indicators on race (black, hispanic, mixed race and non-black. We further look at incarceration rate which is calculated as number of people incarcerated as proportion of 100,000 individuals as that is the most commonly used metric to analysis incarceration trends in United States.
 
 \section{Graphical representation}
 
-The belore graph compares the length of incarceration between male and female across thnic groups. Black men spend roughly 8 times more time incarcerated than black women. The other two groups have similar trend except for mixed race (which is a data glitch perhaps). The way we look at the incarceration rate is number of individuals incarcerated as a proportion of 100,000 individuals. We look at this definition is because it is the most frequently used metric in discussions pertaining to this forum.
+The belore graph compares incarceration rate between male and female across ethnic groups. Incarceration rate for black men is roughly 8 times more than black women. The other two groups have similar trend except for mixed race (which is to be ignored for this assignment). 
 
 \begin{figure}[H]
     \begin{center}
@@ -56,7 +56,7 @@ The belore graph compares the length of incarceration between male and female ac
 
 \section{OLS Regression results}
 
-Table summarise the graph
+Table summarises the graph
 
 \input{../tables/incar_rate_by_racegender.tex}
 
@@ -66,9 +66,9 @@ Following is a result of OLS regression based on the given model:
     y = \beta_0 + x_1\beta_{male} + x_2\beta_{mixedrace} +x_3\beta_{nonblack} +x_4\beta_{hispanic} +\varepsilon
 \end{equation*}
 
-All covariates here are dummy variables. Race black and Gender female is omitted so everyhting is measured in reference to these classes. As ecpected all other ethnic groups have lower chances of being incarcerated compared to blacks. Men have higher chances of being incarcerated compared to women. 
+All covariates here are dummy variables. Race black and Gender female is omitted so everyhting is measured in reference to these classes. As expected all other ethnic groups have lower chances of being incarcerated compared to blacks. Men have higher chances of being incarcerated compared to women. 
 
-The outcome variable here gives the duration of incarceration. So coefficient of male would be interpretated as, Black males are incarcerated for 0.194 months more than black females. 
+The outcome variable here gives the duration of incarceration. So coefficient of male would be interpretated as, Black males are incarcerated for 0.194 months longer than black females. The estimates in this regression seem to be statistically significant.
 
 I used this variable because it varied among individuals. I could have used incarceration status (Y/N) but it would have led to an LPM model which i wanted to avoid for this assignment
 
