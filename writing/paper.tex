@@ -68,6 +68,10 @@ Following is a result of OLS regression based on the given model:
 
 All covariates here are dummy variables. Race black and Gender female is omitted so everyhting is measured in reference to these classes. As ecpected all other ethnic groups have lower chances of being incarcerated compared to blacks. Men have higher chances of being incarcerated compared to women. 
 
+The outcome variable here gives the duration of incarceration. So coefficient of male would be interpretated as, Black males are incarcerated for 0.194 months more than black females. 
+
+I used this variable because it varied among individuals. I could have used incarceration status (Y/N) but it would have led to an LPM model which i wanted to avoid for this assignment
+
 \input{../tables/regress_incar_rate_by_racegender.tex}
 
 \end{document}

@@ -32,8 +32,10 @@ read_csv(here("data/NLSY97_raw.csv")) %>%
     R1482600 == 4 ~ "Non-Black / Non-Hispanic",
   )) %>%
   
+  mutate(whether_incar = ifelse(incar_duration > 0, 1, 0)) %>%
   # finally, select the variables that will be used in the analysis
-  select(race, gender, incar_duration) %>%
+  select(race, gender, incar_duration, whether_incar) %>%
   
   # write to a csv
   write_csv(here("data/NLSY97_clean.csv"))
+  
