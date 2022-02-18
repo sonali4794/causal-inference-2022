@@ -1,18 +1,17 @@
-# Builds a bar graph with total arrests on the y axis and race/gender on the
-# x axis. Refer to my presentation on graphing for more detail.
-
+# Builds a bar graph with mean incarceration rate on the y axis and race/gender on the
+# x axis.
+# We compute incarceration rate as number of people incarcerated for a given 100,000 individuals
 read_csv(here("data/NLSY97_clean.csv")) %>%
   group_by(race, gender) %>%
-  summarize(length_of_incareration = mean(incar_duration)) %>%
-  ggplot(aes(race, length_of_incareration, fill = gender)) +
+  summarize(incar_rate = mean(whether_incar)*100000) %>%
+  ggplot(aes(race, incar_rate, fill = gender)) +
     geom_bar(stat = "identity", position = "dodge") +
-    ylim(0,600) +
     labs(
       x = "Race", 
-      y = "Incarceration Period", 
+      y = "Average Incarceration Rate", 
       fill = "Gender",
-      title = "Total Number of Months that the individual was incarcerated for in 2002 by Race and Gender") +
+      title = "Average Incarceration Rate in 2002 by Race and Gender") +
     theme_minimal() +
     scale_fill_economist()
 
-ggsave(here("figures/incar_length_by_racegender.png"), width=8, height=4.5)
+ggsave(here("figures/incar_rate_by_racegender.png"), width=8, height=4.5)
